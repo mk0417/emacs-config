@@ -107,7 +107,8 @@
   ;; workgroup
   "ec" 'wg-create-workgroup
   "es" 'wg-switch-to-workgroup
-  "ed" 'wg-kill-workgroup-and-buffers)
+  "ed" 'wg-kill-workgroup-and-buffers
+  "ht" 'counsel-load-theme)
 
 ;; comma-leader
 (my-comma-leader-def
