@@ -14,16 +14,6 @@
       org-journal-file-format "%Y-%m-%d.org"
       org-journal-file-type 'monthly)
 
-;; org capture template
-;; https://protesilaos.com/dotemacs/#h:7b88b89a-6eb3-4da3-a9fe-0e447300a250
-(setq org-capture-templates
-        '(("m" "Meeting and event" entry
-           (file+headline "meeting.org" "Meetings, events, and appointments")
-           "* %^{Scope of meeting|Staff meeting: |Student meeting: |Event:} %^{Title} %^g\nSCHEDULED: %^t\n")
-          ("t" "TODO" entry
-           (file+headline "todo.org" "Todo and task")
-           "* TODO [#A] %^{Title} \nSCHEDULED: %^t\n")))
-
 (with-eval-after-load 'org
   (setq org-superstar-remove-leading-stars t
         org-superstar-headline-bullets-list '("◉" "○" "▷")
@@ -45,6 +35,25 @@
   (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
   (add-hook 'org-mode-hook (lambda () (visual-line-mode)))
   (add-hook 'after-init-hook 'org-roam-mode)
+  ;; org-habit
+  (add-to-list 'org-modules 'org-habit)
+  ;; source block template
+  (require 'org-tempo)
+  (add-to-list 'org-structure-template-alist '("b" . "src shell"))
+  (add-to-list 'org-structure-template-alist '("y" . "src python"))
+  (add-to-list 'org-structure-template-alist '("p" . "src elisp"))
+  ;; org capture template
+  ;; https://protesilaos.com/dotemacs/#h:7b88b89a-6eb3-4da3-a9fe-0e447300a250
+  (setq org-capture-templates
+        '(("m" "Meeting and event" entry
+           (file+headline "meeting.org" "Meetings, events, and appointments")
+           "* %^{Scope of meeting|Event: |Research discussion: |Staff meeting: |Student meeting: } %^{Title} %^g\nSCHEDULED: %^t\n")
+          ("t" "TODO" entry
+           (file+headline "todo.org" "Todo and task")
+           "* TODO %^{Title} \nSCHEDULED: %^t\n")
+          ("r" "Routine" entry
+           (file+headline "routine.org" "Routine")
+           "* TODO %^{Title} \nSCHEDULED: %^t\n :PROPERTIES:\n :STYLE:    habit\n :END:\n")))
   ;; export to latex beamer
   (unless (boundp 'org-export-latex-classes)
     (setq org-export-latex-classes nil))

@@ -53,6 +53,17 @@
 (projectile-mode 1)
 (setq projectile-project-search-path '("~/Git/" "~/project/" "~/working/"))
 
+;; world time
+(setq display-time-world-list
+  '(("America/Los_Angeles" "Seattle")
+    ("America/New_York" "New York")
+    ("Europe/London" "London")
+    ("Europe/Paris" "Paris")
+    ("Asia/Shanghai" "Shanghai")
+    ("Asia/Tokyo" "Tokyo")
+    ("Pacific/Auckland" "Auckland")))
+(setq display-time-world-time-format "%a, %d %b %I:%M %p %Z")
+
 ;; increase check interval
 (with-eval-after-load 'wucuo
   ;; 300 seconds

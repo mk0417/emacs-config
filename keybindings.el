@@ -62,6 +62,7 @@
 (global-set-key (kbd "C-w") 'backward-kill-word)
 (global-set-key (kbd "C-x k") 'kill-this-buffer)
 (global-set-key (kbd "C-x K") 'kill-buffer-and-window)
+(global-unset-key (kbd "C-c c"))
 (global-set-key (kbd "C-c c") 'org-capture)
 
 ;; Insert hash on Mac with UK keyboard
