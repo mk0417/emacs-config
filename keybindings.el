@@ -166,7 +166,15 @@
   "hs" 'hydra-search/body
   "hg" 'hydra-git/body
   "hl" 'hydra-launcher/body
-  "hz" 'hydra-zoom/body)
+  "hz" 'hydra-zoom/body
+  ;; org-agenda
+  "na" 'org-agenda
+  ;; org-roam
+  "nrf" 'org-roam-find-file
+  "nri" 'org-roam-insert
+  "nrr" 'org-roam
+  ;; org-journal
+  "njj" 'org-journal-new-entry)
 
 ;; comma-leader
 (my-comma-leader-def
