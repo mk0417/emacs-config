@@ -20,6 +20,8 @@
       '((:eval (if (buffer-file-name)
                    (concat " " (abbreviate-file-name (buffer-file-name)))
                  " %b"))))
+;; fringe
+(set-fringe-mode 5)
 
 ;; load theme
 (setq srcery-invert-region nil)
@@ -38,11 +40,14 @@
 ;; column indicator
 (setq-default display-fill-column-indicator-column 80)
 
+;; selected text color
+(set-face-attribute 'region nil :background "#666666")
+
 ;; highlight brackets
 (show-paren-mode 1)
 (setq show-paren-delay 0)
 (setq show-paren-style 'parenthesis)
-(set-face-attribute 'show-paren-match nil :weight 'extra-bold)
+(set-face-attribute 'show-paren-match nil :weight 'bold :background "#349cd9")
 
 ;; company tooltip color
 (with-eval-after-load 'company
@@ -58,4 +63,3 @@
 
 ;; highlight current line
 (global-hl-line-mode 1)
-
