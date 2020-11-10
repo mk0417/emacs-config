@@ -1,5 +1,13 @@
 ;; -*- coding: utf-8; lexical-binding: t; -*-
 
+;; Profile emacs startup
+(add-hook 'emacs-startup-hook
+          (lambda ()
+            (message "*** Emacs loaded in %s."
+                     (format "%.2f seconds"
+                             (float-time
+                              (time-subtract after-init-time before-init-time))))))
+
 ;; disable warning message
 (setq exec-path-from-shell-check-startup-files nil)
 
@@ -44,9 +52,6 @@
 ;; projectile
 (projectile-mode 1)
 (setq projectile-project-search-path '("~/Git/" "~/project/" "~/working/"))
-
-;; automatically update tag file
-(add-hook 'after-save-hook 'counsel-etags-virtual-update-tags)
 
 ;; increase check interval
 (with-eval-after-load 'wucuo
