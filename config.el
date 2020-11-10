@@ -1,5 +1,6 @@
 ;; -*- coding: utf-8; lexical-binding: t; -*-
 
+;; disable warning message
 (setq exec-path-from-shell-check-startup-files nil)
 
 ;; default folder in scratch buffer
@@ -18,14 +19,6 @@
 ;; disable automatic cursor re-centering
 ;; https://www.reddit.com/r/emacs/comments/2dgy52/how_to_stop_emacs_automatically_recentering_the/
 (setq scroll-step 1)
-
-;; increase check interval
-(with-eval-after-load 'wucuo
-  ;; 300 seconds
-  (setq wucuo-update-interval 300))
-
-;; activity-watch
-;; (global-activity-watch-mode)
 
 ;; counsel-locate
 ;; locate is not available on Mac, so use spotlight (mdfind)
@@ -52,6 +45,14 @@
 (projectile-mode 1)
 (setq projectile-project-search-path '("~/Git/" "~/project/" "~/working/"))
 
+;; automatically update tag file
+(add-hook 'after-save-hook 'counsel-etags-virtual-update-tags)
+
+;; increase check interval
+(with-eval-after-load 'wucuo
+  ;; 300 seconds
+  (setq wucuo-update-interval 300))
+
 ;; disable spell checking for the major modes below
 (setq wucuo-spell-check-buffer-predicate
     (lambda ()
@@ -65,4 +66,7 @@
                     python-mode
                     emacs-lisp-mode
                     ess-mode)))))
+
+;; activity-watch
+(global-activity-watch-mode)
 

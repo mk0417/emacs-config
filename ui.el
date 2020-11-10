@@ -59,7 +59,3 @@
 ;; highlight current line
 (global-hl-line-mode 1)
 
-;; beacon
-(beacon-mode 1)
-(setq beacon-color "#cf5a65"
-      beacon-blink-delay 0.1)

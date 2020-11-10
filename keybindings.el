@@ -1,8 +1,56 @@
 ;; -*- coding: utf-8; lexical-binding: t; -*-
 
+;; functions
+;; https://stackoverflow.com/questions/2951797/wrapping-selecting-text-in-enclosing-characters-in-emacs
+(defun p-surround-parens ()
+  (interactive)
+  (if (region-active-p)
+      (insert-pair 1 ?\( ?\))
+    (backward-char)))
+
+(defun p-surround-brackets ()
+  (interactive)
+  (if (region-active-p)
+      (insert-pair 1 ?\[ ?\])
+    (backward-char)))
+
+(defun p-surround-curly ()
+  (interactive)
+  (if (region-active-p)
+      (insert-pair 1 ?{ ?})
+    (backward-char)))
+
+;; https://emacs.stackexchange.com/questions/54659/how-to-delete-surrounding-brackets
+(defun p-delete-parens ()
+  (interactive)
+  (save-excursion
+    (backward-up-list)
+    (let ((beg (point)))
+      (forward-list)
+      (delete-backward-char 1)
+      (goto-char beg)
+      (delete-char 1))))
+
+;; ex-evil replace
+(defun p-ex-evil-buffer-replace ()
+  (interactive)
+  (evil-ex (concat "%s/")))
+
+(defun p-ex-evil-selection-replace ()
+  (interactive)
+  (evil-ex (concat "'<,'>s/")))
+
+(define-key evil-normal-state-map (kbd "god") 'p-delete-parens)
+(define-key evil-normal-state-map (kbd "gor") 'p-ex-evil-buffer-replace)
+(define-key evil-visual-state-map (kbd "gok") 'p-surround-parens)
+(define-key evil-visual-state-map (kbd "gof") 'p-surround-brackets)
+(define-key evil-visual-state-map (kbd "goh") 'p-surround-curly)
+(define-key evil-visual-state-map (kbd "gor") 'p-ex-evil-selection-replace)
+
 ;; evil-escape
 (setq-default evil-escape-key-sequence "fd")
 
+;; evil state
 (define-key evil-normal-state-map (kbd "C-e") 'evil-end-of-line)
 (define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
 (define-key evil-visual-state-map (kbd "C-e") 'evil-end-of-line)
@@ -10,6 +58,7 @@
 (define-key evil-motion-state-map "j" #'evil-next-visual-line)
 (define-key evil-motion-state-map "k" #'evil-previous-visual-line)
 
+;; global
 (global-set-key (kbd "C-w") 'backward-kill-word)
 (global-set-key (kbd "C-x k") 'kill-this-buffer)
 (global-set-key (kbd "C-x K") 'kill-buffer-and-window)
@@ -37,7 +86,7 @@
   "qq" 'kill-emacs
   ;; buffers, files and projects
   "bb" 'ivy-switch-buffer
-  "bB" 'ibuffer
+  "bi" 'ibuffer
   "bn" 'scratch ;; new scratch buffer
   "bk" 'buf-move-up
   "bj" 'buf-move-down
@@ -88,27 +137,35 @@
   "9" 'winum-select-window-9
   "jj" 'scroll-other-window
   "kk" 'scroll-other-window-up
-  "zz" 'hydra-zoom/body
-  "tm" 'toggle-frame-maximized
   ;; search
   "ss" 'my-swiper
+  "sS" 'swiper-thing-at-point
   "sf" 'counsel-fzf
   "sb" 'counsel-grep ; grep current buffer
   "sc" 'counsel-etags-grep-current-directory
   "sw" 'counsel-etags-find-tag-at-point
   "sa" 'counsel-ag
-  "gf" 'counsel-git
-  "gg" 'my-counsel-git-grep
   "sh" 'my-select-from-search-text-history
   "sr" 'rgrep
-  "sp" 'swiper-thing-at-point
+  "sp" 'counsel-projectile-rg
   "sl" 'avy-goto-line
   "sg" 'counsel-locate
+  "gf" 'counsel-git
+  "gg" 'my-counsel-git-grep
   ;; workgroup
   "ec" 'wg-create-workgroup
   "es" 'wg-switch-to-workgroup
   "ed" 'wg-kill-workgroup-and-buffers
-  "ht" 'counsel-load-theme)
+  "eo" 'wg-open-workgroup
+  ;; toggle
+  "tm" 'toggle-frame-maximized
+  "tt" 'counsel-load-theme
+  ;; hydra
+  "hw" 'hydra-window/body
+  "hs" 'hydra-search/body
+  "hg" 'hydra-git/body
+  "hl" 'hydra-launcher/body
+  "hz" 'hydra-zoom/body)
 
 ;; comma-leader
 (my-comma-leader-def
