@@ -64,6 +64,12 @@
     ("Pacific/Auckland" "Auckland")))
 (setq display-time-world-time-format "%a, %d %b %I:%M %p %Z")
 
+;; spell-fu
+;; (setq spell-fu-directory "~/.spell-fu")
+
+;; set up aspell path, otherwise wucuo does not work
+(setq ispell-program-name "/usr/local/bin/aspell")
+
 ;; increase check interval
 (with-eval-after-load 'wucuo
   ;; 300 seconds
