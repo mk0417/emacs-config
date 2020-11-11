@@ -161,6 +161,7 @@
   ;; toggle
   "tm" 'toggle-frame-maximized
   "tt" 'counsel-load-theme
+  "ts" 'spell-fu-mode
   ;; hydra
   "hw" 'hydra-window/body
   "hs" 'hydra-search/body
@@ -220,6 +221,15 @@
   "ep" 'eval-print-last-sexp
   ;; insert current buffer name
   "in" 'p-insert-file-name)
+
+;; semicolon-leader
+(my-semicolon-leader-def
+  "d" 'my-evil-goto-definition
+  "h" 'evil-shift-left
+  "l" 'evil-shift-right
+  "n" 'my-goto-next-hunk
+  "p" 'my-goto-previous-hunk
+  ";" 'transpose-words)
 
 
 ;; Efficient typing -------------------------------------
