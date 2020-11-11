@@ -1,45 +1,5 @@
 ;; -*- coding: utf-8; lexical-binding: t; -*-
 
-;; functions
-;; https://stackoverflow.com/questions/2951797/wrapping-selecting-text-in-enclosing-characters-in-emacs
-(defun p-surround-parens ()
-  (interactive)
-  (if (region-active-p)
-      (insert-pair 1 ?\( ?\))
-    (backward-char)))
-
-(defun p-surround-brackets ()
-  (interactive)
-  (if (region-active-p)
-      (insert-pair 1 ?\[ ?\])
-    (backward-char)))
-
-(defun p-surround-curly ()
-  (interactive)
-  (if (region-active-p)
-      (insert-pair 1 ?{ ?})
-    (backward-char)))
-
-;; https://emacs.stackexchange.com/questions/54659/how-to-delete-surrounding-brackets
-(defun p-delete-parens ()
-  (interactive)
-  (save-excursion
-    (backward-up-list)
-    (let ((beg (point)))
-      (forward-list)
-      (delete-backward-char 1)
-      (goto-char beg)
-      (delete-char 1))))
-
-;; ex-evil replace
-(defun p-ex-evil-buffer-replace ()
-  (interactive)
-  (evil-ex (concat "%s/")))
-
-(defun p-ex-evil-selection-replace ()
-  (interactive)
-  (evil-ex (concat "'<,'>s/")))
-
 (define-key evil-normal-state-map (kbd "god") 'p-delete-parens)
 (define-key evil-normal-state-map (kbd "gor") 'p-ex-evil-buffer-replace)
 (define-key evil-visual-state-map (kbd "gok") 'p-surround-parens)
@@ -65,6 +25,9 @@
 (global-unset-key (kbd "C-c c"))
 (global-set-key (kbd "C-c c") 'org-capture)
 
+(require 'dired)
+(define-key dired-mode-map (kbd "<C-return>") 'p-open-in-external-app)
+
 ;; Insert hash on Mac with UK keyboard
 ;; https://stackoverflow.com/questions/3977069/emacs-question-hash-key
 ;; this does not work in markdown file
@@ -89,6 +52,7 @@
   "bb" 'ivy-switch-buffer
   "bi" 'ibuffer
   "bn" 'scratch ;; new scratch buffer
+  "bs" 'p-switch-to-scratch
   "bk" 'buf-move-up
   "bj" 'buf-move-down
   "bh" 'buf-move-left
@@ -108,6 +72,7 @@
   "fd" 'find-directory-in-project-by-selected
   "fR" 'vc-rename-file-and-buffer
   "fC" 'vc-copy-file-and-rename-buffer
+  "fP" 'p-find-file-in-private-config
   "dj" 'dired-jump ;; open the dired from current file
   "pp" 'counsel-projectile-find-file
   "ps" 'counsel-projectile-switch-project
@@ -220,7 +185,15 @@
   ;; eval and print results in file
   "ep" 'eval-print-last-sexp
   ;; insert current buffer name
-  "in" 'p-insert-file-name)
+  "in" 'p-insert-file-name
+  ;; google search
+  "sg" 'p-google-search
+  ;; youtube search
+  "sy" 'p-youtube-search
+  ;; insert uk date
+  "iu" 'p-insert-uk-date
+  ;; insert date
+  "id" 'p-insert-date)
 
 ;; semicolon-leader
 (my-semicolon-leader-def

@@ -86,3 +86,126 @@
 ;; activity-watch
 (global-activity-watch-mode)
 
+
+;; functions
+;; https://stackoverflow.com/questions/2951797/wrapping-selecting-text-in-enclosing-characters-in-emacs
+(defun p-surround-parens ()
+  (interactive)
+  (if (region-active-p)
+      (insert-pair 1 ?\( ?\))
+    (backward-char)))
+
+(defun p-surround-brackets ()
+  (interactive)
+  (if (region-active-p)
+      (insert-pair 1 ?\[ ?\])
+    (backward-char)))
+
+(defun p-surround-curly ()
+  (interactive)
+  (if (region-active-p)
+      (insert-pair 1 ?{ ?})
+    (backward-char)))
+
+;; https://emacs.stackexchange.com/questions/54659/how-to-delete-surrounding-brackets
+(defun p-delete-parens ()
+  (interactive)
+  (save-excursion
+    (backward-up-list)
+    (let ((beg (point)))
+      (forward-list)
+      (delete-backward-char 1)
+      (goto-char beg)
+      (delete-char 1))))
+
+;; ex-evil replace
+(defun p-ex-evil-buffer-replace ()
+  (interactive)
+  (evil-ex (concat "%s/")))
+
+(defun p-ex-evil-selection-replace ()
+  (interactive)
+  (evil-ex (concat "'<,'>s/")))
+
+;; switch to scratch buffer
+(defun p-switch-to-scratch ()
+  (interactive)
+  (switch-to-buffer "*scratch*"))
+
+;; find file in my private config
+(require 'counsel)
+(defun p-find-file-in-private-config ()
+  (interactive)
+  (counsel--find-file-1
+   "Find file: " "~/.emacs.p"
+   #'counsel-find-file-action
+   'counsel-find-file))
+
+;; insert date
+(defun p-insert-uk-date ()
+  (interactive)
+  (insert (format-time-string "%d-%m-%Y")))
+
+(defun p-insert-date ()
+  (interactive)
+  (insert (format-time-string "%Y-%m-%d")))
+
+;; insert current buffer name
+(defun p-insert-file-name ()
+  (interactive)
+  (insert (buffer-file-name)))
+
+;; google search
+;; https://emacsredux.com/blog/2013/03/28/google/
+(defun p-google-search ()
+  (interactive)
+  (browse-url
+   (concat
+    "http://www.google.com/search?ie=utf-8&oe=utf-8&q="
+    (url-hexify-string (if mark-active
+                           (buffer-substring (region-beginning) (region-end))
+                         (read-string "Google: "))))))
+
+;; youtube search
+;; https://emacsredux.com/blog/2013/08/26/search-youtube/
+(defun p-youtube-search ()
+  (interactive)
+  (browse-url
+   (concat
+    "http://www.youtube.com/results?search_query="
+    (url-hexify-string (if mark-active
+                           (buffer-substring (region-beginning) (region-end))
+                         (read-string "Search YouTube: "))))))
+
+;; open using external app in dired
+;; http://ergoemacs.org/emacs/emacs_dired_open_file_in_ext_apps.html
+(defun p-open-in-external-app (&optional @fname)
+  (interactive)
+  (let* (($file-list
+          (if @fname
+              (progn (list @fname))
+            (if (string-equal major-mode "dired-mode")
+                (dired-get-marked-files)
+              (list (buffer-file-name)))))
+         ($do-it-p (if (<= (length $file-list) 5)
+                       t
+                     (y-or-n-p "Open more than 5 files? "))))
+    (when $do-it-p
+      (cond
+       ((string-equal system-type "windows-nt")
+        (mapc
+         (lambda ($fpath)
+           (w32-shell-execute "open" $fpath))
+         $file-list))
+       ((string-equal system-type "darwin")
+        (mapc
+         (lambda ($fpath)
+           (shell-command
+            (concat "open " (shell-quote-argument $fpath))))
+         $file-list))
+       ((string-equal system-type "gnu/linux")
+        (mapc
+         (lambda ($fpath) (let ((process-connection-type nil))
+                            (start-process "" nil "xdg-open" $fpath)))
+         $file-list))))))
+
