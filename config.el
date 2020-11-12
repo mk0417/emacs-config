@@ -161,6 +161,11 @@
   (interactive)
   (insert (buffer-file-name)))
 
+;; backward kill to the beginning of line
+(defun p-kill-to-begin-of-line ()
+  (interactive)
+  (kill-line 0))
+
 ;; google search
 ;; https://emacsredux.com/blog/2013/03/28/google/
 (defun p-google-search ()

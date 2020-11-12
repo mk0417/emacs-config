@@ -18,6 +18,7 @@
 (define-key evil-motion-state-map "j" #'evil-next-visual-line)
 (define-key evil-motion-state-map "k" #'evil-previous-visual-line)
 (define-key evil-insert-state-map (kbd "C-a") 'evil-beginning-of-line)
+(define-key evil-insert-state-map (kbd "C-u") 'p-kill-to-begin-of-line)
 
 ;; global
 (global-set-key (kbd "C-w") 'backward-kill-word)
