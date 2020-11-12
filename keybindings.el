@@ -28,6 +28,19 @@
 (require 'dired)
 (define-key dired-mode-map (kbd "<C-return>") 'p-open-in-external-app)
 
+(general-create-definer p-dired-leader-normal-def
+  :prefix ";"
+  :states 'normal
+  :keymaps 'dired-mode-map)
+(p-dired-leader-normal-def
+ "l" 'dired-downcase
+ "u" 'dired-upcase
+ "n" 'dired-create-empty-file
+ "a" 'dired-create-directory
+ "f" 'dired-mark-files-regexp
+ "c" 'dired-mark-files-containing-regexp
+ "p" 'dired-up-directory)
+
 ;; Insert hash on Mac with UK keyboard
 ;; https://stackoverflow.com/questions/3977069/emacs-question-hash-key
 ;; this does not work in markdown file
