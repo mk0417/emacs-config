@@ -173,11 +173,9 @@
   "hn" 'highlight-symbol-nav-mode ; use M-n/M-p to navigation between symbols
   ;; narrow or widen window
   "nw" 'narrow-or-widen-dwim
-  ;; git message
+  ;; git
   "gm" 'vc-msg-show
-  ;; git popup git gutter
   "gp" 'git-gutter:popup-hunk
-  ;; magit status
   "gs" 'magit-status
   ;; display current directory
   "dd" 'pwd
@@ -189,15 +187,11 @@
   "yh" 'counsel-yank-pop
   ;; visual replace
   "rv" 'vr/replace
-  ;; replace-regexp
   "re" 'replace-regexp
-  ;; replace in buffer
   "rb" 'evilmr-replace-in-buffer
-  ;; replace in function
   "rf" 'evilmr-replace-in-defun
-  ;; eval and print results in minibuffer
+  ;; eval
   "es" 'eval-last-sexp
-  ;; eval and print results in file
   "ep" 'eval-print-last-sexp
   ;; insert current buffer name
   "in" 'p-insert-file-name
@@ -205,14 +199,16 @@
   "sg" 'p-google-search
   ;; youtube search
   "sy" 'p-youtube-search
-  ;; insert uk date
-  "iu" 'p-insert-uk-date
   ;; insert date
+  "iu" 'p-insert-uk-date
   "id" 'p-insert-date
   ;; move to beginning of function
   "fb" 'beginning-of-defun
-  ;; move to end of function
-  "fe" 'end-of-defun)
+  "fe" 'end-of-defun
+  ;; xref
+  "jd" 'xref-find-definitions
+  "jr" 'xref-find-references
+  "jg" 'xref-goto-xref)
 
 ;; semicolon-leader
 (my-semicolon-leader-def
