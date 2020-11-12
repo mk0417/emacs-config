@@ -20,8 +20,9 @@
       '((:eval (if (buffer-file-name)
                    (concat " " (abbreviate-file-name (buffer-file-name)))
                  " %b"))))
-;; fringe
-(set-fringe-mode 5)
+
+;; disable fringe
+(fringe-mode 0)
 
 ;; load theme
 (setq srcery-invert-region nil)
