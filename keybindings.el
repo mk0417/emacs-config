@@ -17,6 +17,7 @@
 (define-key evil-ex-completion-map (kbd "C-f") 'forward-char)
 (define-key evil-motion-state-map "j" #'evil-next-visual-line)
 (define-key evil-motion-state-map "k" #'evil-previous-visual-line)
+(define-key evil-insert-state-map (kbd "C-a") 'evil-beginning-of-line)
 
 ;; global
 (global-set-key (kbd "C-w") 'backward-kill-word)
@@ -206,7 +207,11 @@
   ;; insert uk date
   "iu" 'p-insert-uk-date
   ;; insert date
-  "id" 'p-insert-date)
+  "id" 'p-insert-date
+  ;; move to beginning of function
+  "fb" 'beginning-of-defun
+  ;; move to end of function
+  "fe" 'end-of-defun)
 
 ;; semicolon-leader
 (my-semicolon-leader-def
