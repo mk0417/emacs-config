@@ -2,6 +2,9 @@
 
 (define-key evil-normal-state-map (kbd "god") 'p-delete-parens)
 (define-key evil-normal-state-map (kbd "gor") 'p-ex-evil-buffer-replace)
+(define-key evil-normal-state-map (kbd "gok") 'p-surround-parens)
+(define-key evil-normal-state-map (kbd "gof") 'p-surround-brackets)
+(define-key evil-normal-state-map (kbd "goh") 'p-surround-curly)
 (define-key evil-visual-state-map (kbd "gok") 'p-surround-parens)
 (define-key evil-visual-state-map (kbd "gof") 'p-surround-brackets)
 (define-key evil-visual-state-map (kbd "goh") 'p-surround-curly)

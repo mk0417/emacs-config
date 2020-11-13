@@ -98,20 +98,38 @@
 (defun p-surround-parens ()
   (interactive)
   (if (region-active-p)
-      (insert-pair 1 ?\( ?\))
-    (backward-char)))
+      (progn
+        (insert-pair 1 ?\( ?\))
+        (backward-char))
+    (progn
+      (forward-sexp)
+      (backward-sexp)
+      (mark-sexp)
+      (insert-pair 1 ?\( ?\)))))
 
 (defun p-surround-brackets ()
   (interactive)
   (if (region-active-p)
-      (insert-pair 1 ?\[ ?\])
-    (backward-char)))
+      (progn
+        (insert-pair 1 ?\[ ?\])
+        (backward-char))
+    (progn
+      (forward-sexp)
+      (backward-sexp)
+      (mark-sexp)
+      (insert-pair 1 ?\[ ?\]))))
 
 (defun p-surround-curly ()
   (interactive)
   (if (region-active-p)
-      (insert-pair 1 ?{ ?})
-    (backward-char)))
+      (progn
+        (insert-pair 1 ?\{ ?\})
+        (backward-char))
+    (progn
+      (forward-sexp)
+      (backward-sexp)
+      (mark-sexp)
+      (insert-pair 1 ?\{ ?\}))))
 
 ;; https://emacs.stackexchange.com/questions/54659/how-to-delete-surrounding-brackets
 (defun p-delete-parens ()
