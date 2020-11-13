@@ -144,7 +144,6 @@
   ;; toggle
   "tm" 'toggle-frame-maximized
   "tt" 'counsel-load-theme
-  "ts" 'spell-fu-mode
   ;; hydra
   "hw" 'hydra-window/body
   "hs" 'hydra-search/body
