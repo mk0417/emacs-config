@@ -53,6 +53,12 @@
 (projectile-mode 1)
 (setq projectile-project-search-path '("~/Git/" "~/project/" "~/working/"))
 
+;; update tags automatically
+(add-hook 'prog-mode-hook
+          (lambda ()
+            (add-hook 'after-save-hook
+                      'counsel-etags-virtual-update-tags 'append 'local)))
+
 ;; world time
 (setq display-time-world-list
   '(("America/Los_Angeles" "Seattle")
