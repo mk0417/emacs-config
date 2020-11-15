@@ -178,8 +178,9 @@
   "nw" 'narrow-or-widen-dwim
   ;; git
   "gm" 'vc-msg-show
-  "gp" 'git-gutter:popup-hunk
+  "gh" 'git-gutter:popup-hunk
   "gs" 'magit-status
+  "gp" 'magit-diff-popup
   ;; display current directory
   "dd" 'pwd
   ;; copy file name
