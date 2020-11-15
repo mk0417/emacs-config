@@ -144,6 +144,7 @@
   ;; toggle
   "tm" 'toggle-frame-maximized
   "tt" 'counsel-load-theme
+  "tw" 'display-time-world
   ;; hydra
   "hw" 'hydra-window/body
   "hs" 'hydra-search/body
