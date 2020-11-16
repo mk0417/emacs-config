@@ -48,8 +48,7 @@
 (show-paren-mode 1)
 (setq show-paren-delay 0)
 (setq show-paren-style 'parenthesis)
-;; (set-face-attribute 'show-paren-match nil :weight 'bold :background "#349cd9")
-(set-face-attribute 'show-paren-match nil :weight 'bold :background nil :underline "#349cd9")
+(set-face-attribute 'show-paren-match nil :weight 'bold :background "#349cd9")
 
 ;; company tooltip color
 (with-eval-after-load 'company
