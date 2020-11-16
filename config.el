@@ -163,13 +163,9 @@
   (switch-to-buffer "*scratch*"))
 
 ;; find file in my private config
-(require 'counsel)
 (defun p-find-file-in-private-config ()
   (interactive)
-  (counsel--find-file-1
-   "Find file: " "~/.emacs.p"
-   #'counsel-find-file-action
-   'counsel-find-file))
+  (counsel-find-file "~/.emacs.p"))
 
 ;; insert date
 (defun p-insert-uk-date ()
@@ -189,6 +185,16 @@
 (defun p-kill-to-begin-of-line ()
   (interactive)
   (kill-line 0))
+
+;; counsel find my literature
+(defun p-counsel-find-literature ()
+  (interactive)
+  (counsel-find-file "~/Dropbox/roam_literature"))
+
+;; dired open my literature
+(defun p-dired-jump-literature ()
+  (interactive)
+  (dired "~/Dropbox/roam_literature"))
 
 ;; google search
 ;; https://emacsredux.com/blog/2013/03/28/google/

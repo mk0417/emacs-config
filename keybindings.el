@@ -83,6 +83,7 @@
   "bm" (lambda () (interactive) (switch-to-buffer "*Messages*"))
   "`" (lambda () (interactive) (switch-to-buffer nil)) ; to previous buffer
   "ff" 'counsel-find-file
+  "fl" 'p-counsel-find-literature
   "fs" 'save-buffer
   "fr" 'counsel-recentf
   "fp" 'find-file-in-project
@@ -95,6 +96,7 @@
   "fC" 'vc-copy-file-and-rename-buffer
   "fP" 'p-find-file-in-private-config
   "dj" 'dired-jump ;; open the dired from current file
+  "dl" 'p-dired-jump-literature
   "pp" 'counsel-projectile-find-file
   "ps" 'counsel-projectile-switch-project
   ;; windows
