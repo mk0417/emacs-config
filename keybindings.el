@@ -30,7 +30,7 @@
 (global-unset-key (kbd "C-c c"))
 (global-set-key (kbd "C-c c") 'org-capture)
 
-
+;; dired
 (require 'dired)
 (define-key dired-mode-map (kbd "<C-return>") 'p-open-in-external-app)
 
