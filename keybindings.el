@@ -5,6 +5,7 @@
 (define-key evil-normal-state-map (kbd "gok") 'p-surround-parens)
 (define-key evil-normal-state-map (kbd "gof") 'p-surround-brackets)
 (define-key evil-normal-state-map (kbd "goh") 'p-surround-curly)
+(define-key evil-normal-state-map (kbd "s") 'evil-snipe-s)
 (define-key evil-visual-state-map (kbd "gok") 'p-surround-parens)
 (define-key evil-visual-state-map (kbd "gof") 'p-surround-brackets)
 (define-key evil-visual-state-map (kbd "goh") 'p-surround-curly)

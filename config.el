@@ -59,6 +59,9 @@
             (add-hook 'after-save-hook
                       'counsel-etags-virtual-update-tags 'append 'local)))
 
+;; global evil-snipe
+(evil-snipe-override-mode 1)
+
 ;; world time
 (setq display-time-world-list
   '(("America/Los_Angeles" "Seattle")
