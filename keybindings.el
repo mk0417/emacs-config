@@ -242,6 +242,15 @@
     (general-key-dispatch 'self-insert-command
       :timeout 0.25
       "k" 'p-insert-paren))
+  ;; square brackets
+  (defun p-insert-sbracket ()
+    (interactive)
+    (insert "[]")
+    (backward-char 1))
+  (general-imap "i"
+    (general-key-dispatch 'self-insert-command
+      :timeout 0.25
+      "i" 'p-insert-sbracket))
   ;; curly brackets
   (defun p-insert-cbracket ()
     (interactive)
