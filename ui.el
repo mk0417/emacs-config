@@ -65,3 +65,11 @@
 
 ;; highlight current line
 (global-hl-line-mode 1)
+
+;; org src block faces
+(with-eval-after-load 'org
+  (custom-set-faces
+   '(org-block-begin-line
+     ((t (:underline t))))
+   '(org-block-end-line
+     ((t (:overline t))))))
