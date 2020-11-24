@@ -38,9 +38,12 @@
   ;; org-habit
   (add-to-list 'org-modules 'org-habit)
   ;; org python
+  (require 'jupyter)
+  (require 'ob-jupyter)
   (org-babel-do-load-languages
    'org-babel-load-languages
-   '((python . t)))
+   '((python . t)
+     (jupyter . t)))
   ;; source block template
   (require 'org-tempo)
   (add-to-list 'org-structure-template-alist '("b" . "src shell"))
