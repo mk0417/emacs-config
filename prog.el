@@ -22,7 +22,7 @@
   "jr" 'jupyter-eval-line-or-region
   "jR" 'jupyter-repl-restart-kernel
   "jC" 'jupyter-repl-clear-cells
-  "jI" 'jupyter-interrupt-kernel
+  "jI" 'jupyter-repl-interrupt-kernel
   "ji" 'jupyter-inspect-at-point
   "jc" 'jupyter-eval-remove-overlays)
 
