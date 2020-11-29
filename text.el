@@ -49,6 +49,7 @@
   (add-to-list 'org-structure-template-alist '("b" . "src shell"))
   (add-to-list 'org-structure-template-alist '("y" . "src python :session py :results output"))
   (add-to-list 'org-structure-template-alist '("p" . "src elisp"))
+  (add-to-list 'org-structure-template-alist '("j" . "src jupyter-python :session py"))
   ;; org capture template
   ;; https://protesilaos.com/dotemacs/#h:7b88b89a-6eb3-4da3-a9fe-0e447300a250
   (setq org-capture-templates
