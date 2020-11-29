@@ -33,8 +33,9 @@
 (global-set-key (kbd "C-c c") 'org-capture)
 
 ;; dired
-(require 'dired)
-(define-key dired-mode-map (kbd "<C-return>") 'p-open-in-external-app)
+;; (require 'dired)
+(with-eval-after-load 'dired
+  (define-key dired-mode-map (kbd "<C-return>") 'p-open-in-external-app))
 
 (general-create-definer p-dired-leader-normal-def
   :prefix ";"
