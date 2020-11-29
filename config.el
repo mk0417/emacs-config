@@ -196,6 +196,12 @@
   (interactive)
   (dired "~/Dropbox/roam_literature"))
 
+;; delete to tab
+(defun p-delete-backward-to-tab ()
+  (interactive)
+  (kill-line 0)
+  (insert "    "))
+
 ;; google search
 ;; https://emacsredux.com/blog/2013/03/28/google/
 (defun p-google-search ()

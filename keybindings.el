@@ -23,6 +23,7 @@
 (define-key evil-motion-state-map "k" #'evil-previous-visual-line)
 (define-key evil-insert-state-map (kbd "C-a") 'evil-beginning-of-line)
 (define-key evil-insert-state-map (kbd "C-u") 'p-kill-to-begin-of-line)
+(define-key evil-insert-state-map (kbd "C-i") 'p-delete-backward-to-tab)
 
 ;; global
 (global-set-key (kbd "C-w") 'backward-kill-word)
