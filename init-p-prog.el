@@ -32,4 +32,3 @@
   :keymaps 'python-mode-map)
 (p-python-leader-visual-def
   "jr" 'jupyter-eval-line-or-region)
-
