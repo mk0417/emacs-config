@@ -255,3 +255,5 @@
          (lambda ($fpath) (let ((process-connection-type nil))
                             (start-process "" nil "xdg-open" $fpath)))
          $file-list))))))
+
+(provide 'init-p-config)

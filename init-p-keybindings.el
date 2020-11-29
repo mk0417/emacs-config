@@ -406,3 +406,4 @@
       :timeout 0.25
       "v" 'p-insert-hash)))
 
+(provide 'init-p-keybindings)

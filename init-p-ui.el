@@ -74,3 +74,5 @@
      ((t (:underline t))))
    '(org-block-end-line
      ((t (:overline t))))))
+
+(provide 'init-p-ui)

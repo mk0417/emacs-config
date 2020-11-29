@@ -2,3 +2,4 @@
 
 (require-package 'ivy-rich)
 
+(provide 'init-p-packages)

@@ -96,3 +96,5 @@
                   "\\end{frame}"
                   "\\begin{frame}[fragile]\\frametitle{%s}"
                   "\\end{frame}"))))
+
+(provide 'init-p-text)
