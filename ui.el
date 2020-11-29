@@ -37,7 +37,8 @@
 
 ;; change default font
 ;; (set-frame-font "Fira Code 12" nil t)
-(set-frame-font "JetBrains Mono 12" nil t)
+;; (set-frame-font "JetBrains Mono 12" nil t)
+(set-frame-font "Roboto Mono 12" nil t)
 
 ;; column indicator
 (setq-default display-fill-column-indicator-column 80)
