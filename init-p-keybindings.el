@@ -1,29 +1,28 @@
 ;; -*- coding: utf-8; lexical-binding: t; -*-
 
+;; evil state
 (define-key evil-normal-state-map (kbd "god") 'p-delete-parens)
 (define-key evil-normal-state-map (kbd "gor") 'p-ex-evil-buffer-replace)
 (define-key evil-normal-state-map (kbd "gok") 'p-surround-parens)
 (define-key evil-normal-state-map (kbd "gof") 'p-surround-brackets)
 (define-key evil-normal-state-map (kbd "goh") 'p-surround-curly)
 (define-key evil-normal-state-map (kbd "s") 'avy-goto-char-2)
+(define-key evil-normal-state-map (kbd "C-e") 'evil-end-of-line)
+(define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
 (define-key evil-visual-state-map (kbd "gok") 'p-surround-parens)
 (define-key evil-visual-state-map (kbd "gof") 'p-surround-brackets)
 (define-key evil-visual-state-map (kbd "goh") 'p-surround-curly)
 (define-key evil-visual-state-map (kbd "gor") 'p-ex-evil-selection-replace)
-
-;; evil-escape
-(setq-default evil-escape-key-sequence "fd")
-
-;; evil state
-(define-key evil-normal-state-map (kbd "C-e") 'evil-end-of-line)
-(define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
 (define-key evil-visual-state-map (kbd "C-e") 'evil-end-of-line)
-(define-key evil-ex-completion-map (kbd "C-f") 'forward-char)
-(define-key evil-motion-state-map "j" #'evil-next-visual-line)
-(define-key evil-motion-state-map "k" #'evil-previous-visual-line)
 (define-key evil-insert-state-map (kbd "C-a") 'evil-beginning-of-line)
 (define-key evil-insert-state-map (kbd "C-u") 'p-kill-to-begin-of-line)
 (define-key evil-insert-state-map (kbd "C-i") 'p-delete-backward-to-tab)
+(define-key evil-motion-state-map "j" #'evil-next-visual-line)
+(define-key evil-motion-state-map "k" #'evil-previous-visual-line)
+(define-key evil-ex-completion-map (kbd "C-f") 'forward-char)
+
+;; evil-escape
+(setq-default evil-escape-key-sequence "fd")
 
 ;; global
 (global-set-key (kbd "C-w") 'backward-kill-word)
