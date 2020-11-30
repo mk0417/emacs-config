@@ -2,7 +2,6 @@
 
 (add-to-list 'load-path "~/.emacs.p/")
 
-(require 'init-p-packages)
 (require 'init-p-config)
 (require 'init-p-ui)
 (require 'init-p-keybindings)
