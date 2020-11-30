@@ -11,6 +11,13 @@
 ;; jupyter
 (setq jupyter-eval-use-overlays t)
 
+(defun p-jupyter-remove-line-overlay ()
+  (interactive)
+  (evil-open-below 0)
+  (kill-whole-line)
+  (evil-escape)
+  (previous-line))
+
 ;; keybindings
 (general-create-definer p-python-leader-normal-def
   :prefix ";"
@@ -24,7 +31,8 @@
   "jC" 'jupyter-repl-clear-cells
   "jI" 'jupyter-repl-interrupt-kernel
   "ji" 'jupyter-inspect-at-point
-  "jc" 'jupyter-eval-remove-overlays)
+  "jc" 'p-jupyter-remove-line-overlay
+  "jC" 'jupyter-eval-remove-overlays)
 
 (general-create-definer p-python-leader-visual-def
   :prefix ";"
