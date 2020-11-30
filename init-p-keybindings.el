@@ -63,6 +63,7 @@
 (with-eval-after-load "company"
   (define-key company-active-map (kbd "C-p") #'company-select-previous-or-abort)
   (define-key company-active-map (kbd "C-n") #'company-select-next-or-abort)
+  (define-key company-active-map (kbd "C-j") #'company-complete-selection)
   ;; enable C-w when company completes the codes
   (define-key company-active-map (kbd "C-w") #'backward-kill-word))
 
