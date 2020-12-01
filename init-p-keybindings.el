@@ -211,6 +211,8 @@
   "sg" 'p-google-search
   ;; youtube search
   "sy" 'p-youtube-search
+  ;; select functions
+  "sf" 'p-select-function
   ;; insert date
   "iu" 'p-insert-uk-date
   "id" 'p-insert-date

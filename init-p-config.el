@@ -202,6 +202,12 @@
   (kill-line 0)
   (insert "    "))
 
+;; select functions
+(defun p-select-function ()
+  (interactive)
+  (beginning-of-defun)
+  (evilmi-select-items))
+
 ;; google search
 ;; https://emacsredux.com/blog/2013/03/28/google/
 (defun p-google-search ()
