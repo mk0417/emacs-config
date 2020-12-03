@@ -3,12 +3,16 @@
 ;; Python ---------------------------------------------------
 
 (with-eval-after-load 'python
+  ;; column indicator
   (add-hook 'python-mode-hook 'display-fill-column-indicator-mode)
+  ;; let jupyter-output window on right
+  (push '("*jupyter-output*" :position right :width 60 :noselect t) popwin:special-display-config)
   ;; disable warning
   (setq python-indent-guess-indent-offset-verbose nil
         python-indent-guess-indent-offset nil))
 
 ;; jupyter
+;; enable in-line outout
 (setq jupyter-eval-use-overlays t)
 
 (defun p-jupyter-remove-line-overlay ()
