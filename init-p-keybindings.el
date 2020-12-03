@@ -9,11 +9,15 @@
 (define-key evil-normal-state-map (kbd "s") 'avy-goto-char-2)
 (define-key evil-normal-state-map (kbd "C-e") 'evil-end-of-line)
 (define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
+(define-key evil-normal-state-map (kbd "gh") 'evil-shift-left)
+(define-key evil-normal-state-map (kbd "gl") 'evil-shift-right)
 (define-key evil-visual-state-map (kbd "gok") 'p-surround-parens)
 (define-key evil-visual-state-map (kbd "gof") 'p-surround-brackets)
 (define-key evil-visual-state-map (kbd "goh") 'p-surround-curly)
 (define-key evil-visual-state-map (kbd "gor") 'p-ex-evil-selection-replace)
 (define-key evil-visual-state-map (kbd "C-e") 'evil-end-of-line)
+(define-key evil-visual-state-map (kbd "gh") 'evil-shift-left)
+(define-key evil-visual-state-map (kbd "gl") 'evil-shift-right)
 (define-key evil-insert-state-map (kbd "C-a") 'evil-beginning-of-line)
 (define-key evil-insert-state-map (kbd "C-u") 'p-kill-to-begin-of-line)
 (define-key evil-insert-state-map (kbd "C-i") 'p-delete-backward-to-tab)
@@ -227,8 +231,6 @@
 ;; semicolon-leader
 (my-semicolon-leader-def
   "d" 'my-evil-goto-definition
-  "h" 'evil-shift-left
-  "l" 'evil-shift-right
   "n" 'my-goto-next-hunk
   "p" 'my-goto-previous-hunk
   ";" 'transpose-words)
