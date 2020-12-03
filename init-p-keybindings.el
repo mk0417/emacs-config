@@ -222,18 +222,22 @@
   "id" 'p-insert-date
   ;; move to beginning of function
   "fb" 'beginning-of-defun
-  "fe" 'end-of-defun
-  ;; xref
-  "jd" 'xref-find-definitions
-  "jr" 'xref-find-references
-  "jg" 'xref-goto-xref)
+  "fe" 'end-of-defun)
 
 ;; semicolon-leader
 (my-semicolon-leader-def
   "d" 'my-evil-goto-definition
   "n" 'my-goto-next-hunk
   "p" 'my-goto-previous-hunk
-  ";" 'transpose-words)
+  ";" 'transpose-words
+  ;; lsp
+  "lr" 'lsp-rename
+  "ld" 'lsp-find-definition
+  "ls" 'lsp-find-references
+  ;; xref
+  "jd" 'xref-find-definitions
+  "js" 'xref-find-references
+  "jg" 'xref-goto-xref)
 
 
 ;; Efficient typing -------------------------------------
