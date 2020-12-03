@@ -62,6 +62,39 @@
 ;; popwin
 (popwin-mode 1)
 
+;; lsp-mode
+;; performance improvements: @see https://emacs-lsp.github.io/lsp-mode/page/performance/
+(with-eval-after-load 'lsp-mode
+  (setq lsp-enable-file-watchers nil)
+  ;; enable log only for debug
+  (setq lsp-log-io nil)
+  ;; use `evil-matchit' instead
+  (setq lsp-enable-folding nil)
+  ;; no real time syntax check
+  (setq lsp-diagnostic-package :none)
+  ;; handle yasnippet by myself
+  (setq lsp-enable-snippet nil)
+  ;; use `company-ctags' only.
+  ;; Please note `company-lsp' is automatically enabled if it's installed
+  (setq lsp-enable-completion-at-point nil)
+  ;; turn off for better performance
+  (setq lsp-enable-symbol-highlighting nil)
+  ;; use find-fine-in-project instead
+  (setq lsp-enable-links nil)
+  ;; auto restart lsp
+  (setq lsp-restart 'auto-restart)
+  ;; don't watch 3rd party javascript libraries
+  (push "[/\\\\][^/\\\\]*\\.\\(json\\|html\\|jade\\)$" lsp-file-watch-ignored)
+  ;; don't ping LSP language server too frequently
+  (defvar lsp-on-touch-time 0)
+  (defun my-lsp-on-change-hack (orig-fun &rest args)
+    ;; do NOT run `lsp-on-change' too frequently
+    (when (> (- (float-time (current-time))
+                lsp-on-touch-time) 120) ;; 2 mins
+      (setq lsp-on-touch-time (float-time (current-time)))
+      (apply orig-fun args)))
+  (advice-add 'lsp-on-change :around #'my-lsp-on-change-hack))
+
 ;; world time
 (setq display-time-world-list
   '(("America/Los_Angeles" "Seattle")
