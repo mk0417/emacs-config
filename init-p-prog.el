@@ -7,7 +7,7 @@
   (add-hook 'python-mode-hook 'display-fill-column-indicator-mode)
   ;; enable lsp-mode automatically
   (require 'lsp-mode)
-  ;; find executable pyls otherwise pyls is not on path
+  ;; If use pyls: find executable pyls otherwise pyls is not on path
   (setq lsp-pyls-server-command "~/anaconda3/bin/pyls")
   (add-hook 'python-mode-hook #'lsp-deferred)
   ;; let jupyter-output window on right
