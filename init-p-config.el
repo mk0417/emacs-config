@@ -33,7 +33,8 @@
 (setq counsel-locate-cmd #'counsel-locate-cmd-mdfind)
 
 ;; company
-(setq company-minimum-prefix-length 1)
+(with-eval-after-load 'company
+  (setq company-minimum-prefix-length 1))
 
 ;; snippets
 (setq yas-snippet-dirs '("~/.emacs.snippets"))
@@ -66,6 +67,13 @@
 ;; performance improvements: @see https://emacs-lsp.github.io/lsp-mode/page/performance/
 (with-eval-after-load 'lsp-mode
   (setq lsp-enable-file-watchers nil)
+  ;; @see https://github.com/emacs-lsp/lsp-mode/blob/master/docs/tutorials/how-to-turn-off.md
+  (setq lsp-modeline-code-actions-enable nil)
+  (setq lsp-modeline-diagnostics-enable nil)
+  ;; @see https://github.com/emacs-lsp/lsp-mode/blob/db2e03738d24085213908076cd0e9a4cbeecf13d/docs/tutorials/PYLS-guide.md
+  (setq lsp-print-io nil)
+  (setq lsp-pyls-plugins-jedi-completion-fuzzy nil)
+  (setq lsp-pyls-plugins-pylint-enabled nil)
   ;; enable log only for debug
   (setq lsp-log-io nil)
   ;; use `evil-matchit' instead
