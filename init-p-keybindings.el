@@ -231,9 +231,9 @@
   "p" 'my-goto-previous-hunk
   ";" 'transpose-words
   ;; lsp
-  "lr" 'lsp-rename
-  "ld" 'lsp-find-definition
-  "ls" 'lsp-find-references
+  ;; "lr" 'lsp-rename
+  ;; "ld" 'lsp-find-definition
+  ;; "ls" 'lsp-find-references
   ;; xref
   "jd" 'xref-find-definitions
   "js" 'xref-find-references

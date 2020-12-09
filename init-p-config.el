@@ -65,43 +65,46 @@
 
 ;; lsp-mode
 ;; performance improvements: @see https://emacs-lsp.github.io/lsp-mode/page/performance/
-(with-eval-after-load 'lsp-mode
-  (setq lsp-enable-file-watchers nil)
-  ;; @see https://github.com/emacs-lsp/lsp-mode/blob/master/docs/tutorials/how-to-turn-off.md
-  (setq lsp-modeline-code-actions-enable nil)
-  (setq lsp-modeline-diagnostics-enable nil)
-  ;; @see https://github.com/emacs-lsp/lsp-mode/blob/db2e03738d24085213908076cd0e9a4cbeecf13d/docs/tutorials/PYLS-guide.md
-  (setq lsp-print-io nil)
-  (setq lsp-pyls-plugins-jedi-completion-fuzzy nil)
-  (setq lsp-pyls-plugins-pylint-enabled nil)
-  ;; enable log only for debug
-  (setq lsp-log-io nil)
-  ;; use `evil-matchit' instead
-  (setq lsp-enable-folding nil)
-  ;; no real time syntax check
-  (setq lsp-diagnostic-package :none)
-  ;; handle yasnippet by myself
-  (setq lsp-enable-snippet nil)
-  ;; use `company-ctags' only.
-  ;; Please note `company-lsp' is automatically enabled if it's installed
-  (setq lsp-enable-completion-at-point nil)
-  ;; turn off for better performance
-  (setq lsp-enable-symbol-highlighting nil)
-  ;; use find-fine-in-project instead
-  (setq lsp-enable-links nil)
-  ;; auto restart lsp
-  (setq lsp-restart 'auto-restart)
-  ;; don't watch 3rd party javascript libraries
-  (push "[/\\\\][^/\\\\]*\\.\\(json\\|html\\|jade\\)$" lsp-file-watch-ignored)
-  ;; don't ping LSP language server too frequently
-  (defvar lsp-on-touch-time 0)
-  (defun my-lsp-on-change-hack (orig-fun &rest args)
-    ;; do NOT run `lsp-on-change' too frequently
-    (when (> (- (float-time (current-time))
-                lsp-on-touch-time) 120) ;; 2 mins
-      (setq lsp-on-touch-time (float-time (current-time)))
-      (apply orig-fun args)))
-  (advice-add 'lsp-on-change :around #'my-lsp-on-change-hack))
+;; (with-eval-after-load 'lsp-mode
+;;   ;; If use pyls: find executable pyls otherwise pyls is not on path
+;;   (setq lsp-pyls-server-command "~/anaconda3/bin/pyls")
+;;   (add-hook 'python-mode-hook #'lsp-deferred)
+;;   (setq lsp-enable-file-watchers nil)
+;;   ;; @see https://github.com/emacs-lsp/lsp-mode/blob/master/docs/tutorials/how-to-turn-off.md
+;;   (setq lsp-modeline-code-actions-enable nil)
+;;   (setq lsp-modeline-diagnostics-enable nil)
+;;   ;; @see https://github.com/emacs-lsp/lsp-mode/blob/db2e03738d24085213908076cd0e9a4cbeecf13d/docs/tutorials/PYLS-guide.md
+;;   (setq lsp-print-io nil)
+;;   (setq lsp-pyls-plugins-jedi-completion-fuzzy nil)
+;;   (setq lsp-pyls-plugins-pylint-enabled nil)
+;;   ;; enable log only for debug
+;;   (setq lsp-log-io nil)
+;;   ;; use `evil-matchit' instead
+;;   (setq lsp-enable-folding nil)
+;;   ;; no real time syntax check
+;;   (setq lsp-diagnostic-package :none)
+;;   ;; handle yasnippet by myself
+;;   (setq lsp-enable-snippet nil)
+;;   ;; use `company-ctags' only.
+;;   ;; Please note `company-lsp' is automatically enabled if it's installed
+;;   (setq lsp-enable-completion-at-point nil)
+;;   ;; turn off for better performance
+;;   (setq lsp-enable-symbol-highlighting nil)
+;;   ;; use find-fine-in-project instead
+;;   (setq lsp-enable-links nil)
+;;   ;; auto restart lsp
+;;   (setq lsp-restart 'auto-restart)
+;;   ;; don't watch 3rd party javascript libraries
+;;   (push "[/\\\\][^/\\\\]*\\.\\(json\\|html\\|jade\\)$" lsp-file-watch-ignored)
+;;   ;; don't ping LSP language server too frequently
+;;   (defvar lsp-on-touch-time 0)
+;;   (defun my-lsp-on-change-hack (orig-fun &rest args)
+;;     ;; do NOT run `lsp-on-change' too frequently
+;;     (when (> (- (float-time (current-time))
+;;                 lsp-on-touch-time) 120) ;; 2 mins
+;;       (setq lsp-on-touch-time (float-time (current-time)))
+;;       (apply orig-fun args)))
+;;   (advice-add 'lsp-on-change :around #'my-lsp-on-change-hack))
 
 ;; world time
 (setq display-time-world-list

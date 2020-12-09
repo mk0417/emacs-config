@@ -6,12 +6,7 @@
   ;; column indicator
   (add-hook 'python-mode-hook 'display-fill-column-indicator-mode)
   ;; enable lsp-mode automatically
-  ;; If use pyls: find executable pyls otherwise pyls is not on path
-  (require 'lsp-mode)
-  (setq lsp-pyls-server-command "~/anaconda3/bin/pyls")
-  (add-hook 'python-mode-hook #'lsp-deferred)
-  ;; let jupyter-output window on right
-  (push '("*jupyter-output*" :position right :width 60 :noselect t) popwin:special-display-config)
+  ;; (require 'lsp-mode)
   ;; disable warning
   (setq python-indent-guess-indent-offset-verbose nil
         python-indent-guess-indent-offset nil))
@@ -19,6 +14,8 @@
 ;; jupyter
 ;; enable inline outout
 (setq jupyter-eval-use-overlays t)
+;; let jupyter-output window on right
+(push '("*jupyter-output*" :position right :width 60 :noselect t) popwin:special-display-config)
 
 (defun p-jupyter-remove-line-overlay ()
   (interactive)
