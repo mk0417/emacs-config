@@ -164,6 +164,10 @@
 ;; activity-watch
 (global-activity-watch-mode)
 
+;; from https://blog.sumtypeofway.com/posts/emacs-config.html
+(setq make-backup-files nil
+      auto-save-default nil
+      create-lockfiles nil)
 
 ;; functions
 ;; https://stackoverflow.com/questions/2951797/wrapping-selecting-text-in-enclosing-characters-in-emacs
@@ -273,6 +277,19 @@
   (interactive)
   (beginning-of-defun)
   (evilmi-select-items))
+
+;; select block between blank lines: Xah Lee
+;; http://ergoemacs.org/emacs/modernization_mark-word.html
+(defun p-select-block ()
+  (interactive)
+  (if (region-active-p)
+      (re-search-forward "\n[ \t]*\n" nil "move")
+    (progn
+      (skip-chars-forward " \n\t")
+      (when (re-search-backward "\n[ \t]*\n" nil "move")
+        (re-search-forward "\n[ \t]*\n"))
+      (push-mark (point) t t)
+      (re-search-forward "\n[ \t]*\n" nil "move"))))
 
 ;; google search
 ;; https://emacsredux.com/blog/2013/03/28/google/
