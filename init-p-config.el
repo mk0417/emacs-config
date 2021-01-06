@@ -49,6 +49,25 @@
 
 ;; ffip
 (setq ffip-use-rust-fd t)
+;; my empirical root
+(defun p-setup-empirical-environment ()
+  (interactive)
+  (when (ffip-current-full-filename-match-pattern-p "Git")
+    (setq-local ffip-use-rust-fd nil)
+    ;; Though PROJECT_DIR is team's project, I care only its sub-directory "subproj1""
+    (setq-local ffip-project-root "~/.empirical_root")
+    ;; well, I'm not interested in concatenated BIG js file or file in dist/
+    (setq-local ffip-find-options "-follow")
+    ;; for this project, I'm only interested certain types of files
+    ;; (setq-local ffip-patterns '("*.html" "*.js" "*.css" "*.java" "*.xml" "*.js"))
+    ;; ignore files whose name match certain glob pattern
+    (setq-local ffip-ignore-filenames '("*.pdf"))
+    ;; exclude `dist/' directory
+    (add-to-list 'ffip-prune-patterns "*/research_project"))
+  ;; insert more WHEN statements below this line for other projects
+  )
+;; most major modes inherit from prog-mode, so below line is enough
+(add-hook 'prog-mode-hook 'p-setup-empirical-environment)
 
 ;; projectile
 (projectile-mode 1)
