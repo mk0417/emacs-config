@@ -24,6 +24,13 @@
   (evil-escape)
   (previous-line))
 
+(defun p-jupyter-eval-block ()
+    (interactive)
+    (p-select-block)
+    (let (beg end)
+      (setq beg (region-beginning) end (region-end))
+      (jupyter-eval-region beg end)))
+
 ;; keybindings
 (general-create-definer p-python-leader-normal-def
   :prefix ";"
@@ -33,6 +40,7 @@
   "jj" 'jupyter-run-repl
   "jf" 'jupyter-eval-defun
   "jr" 'jupyter-eval-line-or-region
+  "je" 'p-jupyter-eval-block
   "jR" 'jupyter-repl-restart-kernel
   "jC" 'jupyter-repl-clear-cells
   "jI" 'jupyter-repl-interrupt-kernel
