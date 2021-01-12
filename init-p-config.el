@@ -71,7 +71,7 @@
 
 ;; projectile
 (projectile-mode 1)
-(setq projectile-project-search-path '("~/Git/" "~/project/" "~/working/"))
+(setq projectile-project-search-path '("~/Git/" "~/project/"))
 
 ;; update tags automatically
 (add-hook 'prog-mode-hook
