@@ -55,7 +55,7 @@
   (when (ffip-current-full-filename-match-pattern-p "Git")
     (setq-local ffip-use-rust-fd nil)
     ;; Though PROJECT_DIR is team's project, I care only its sub-directory "subproj1""
-    (setq-local ffip-project-root "~/.empirical_root")
+    (setq-local ffip-project-root "~/Git")
     ;; well, I'm not interested in concatenated BIG js file or file in dist/
     (setq-local ffip-find-options "-follow")
     ;; for this project, I'm only interested certain types of files
