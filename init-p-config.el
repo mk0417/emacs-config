@@ -169,6 +169,9 @@
       auto-save-default nil
       create-lockfiles nil)
 
+;; evil-goggles
+(evil-goggles-mode)
+
 ;; functions
 ;; https://stackoverflow.com/questions/2951797/wrapping-selecting-text-in-enclosing-characters-in-emacs
 (defun p-surround-parens ()
