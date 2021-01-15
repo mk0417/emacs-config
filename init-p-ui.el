@@ -25,8 +25,14 @@
 (fringe-mode 0)
 
 ;; load theme
-(setq srcery-invert-region nil)
-(load-theme 'srcery t)
+;; (setq srcery-invert-region nil)
+;; (load-theme 'srcery t)
+
+(require 'modus-themes)
+(load-theme 'modus-vivendi t)
+
+;; window num face
+(set-face-attribute 'winum-face nil :underline t :weight 'bold :foreground "black")
 
 ;; change cursor color
 ;; (set-cursor-color "#cf5a65")
