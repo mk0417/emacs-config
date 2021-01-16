@@ -32,6 +32,7 @@
         org-roam-server-network-label-truncate t
         org-roam-server-network-label-truncate-length 60
         org-roam-server-network-label-wrap-length 20)
+  (setq org-hide-emphasis-markers t)
   (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
   (add-hook 'org-mode-hook (lambda () (visual-line-mode)))
   (add-hook 'after-init-hook 'org-roam-mode)

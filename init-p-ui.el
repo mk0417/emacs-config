@@ -29,6 +29,16 @@
 ;; (load-theme 'srcery t)
 
 (require 'modus-themes)
+(setq modus-themes-syntax 'green-strings
+      modus-themes-links 'faint
+      modus-themes-prompts 'intense
+      modus-themes-intense-hl-line 't
+      modus-themes-region 'bg-only)
+(setq modus-themes-scale-headings t
+      modus-themes-scale-1 1.3
+      modus-themes-scale-2 1.1)
+(setq modus-themes-headings
+      '((t . rainbow-section)))
 (load-theme 'modus-vivendi t)
 
 ;; window num face
@@ -79,6 +89,8 @@
    '(org-block-begin-line
      ((t (:underline t))))
    '(org-block-end-line
-     ((t (:overline t))))))
+     ((t (:overline t))))
+   '(org-block
+     ((t (:background "#1e1e1e" :extend t))))))
 
 (provide 'init-p-ui)
