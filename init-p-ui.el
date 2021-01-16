@@ -54,7 +54,8 @@
 ;; change default font
 ;; (set-frame-font "Fira Code 12" nil t)
 ;; (set-frame-font "JetBrains Mono 12" nil t)
-(set-frame-font "Roboto Mono 12" nil t)
+;; (set-frame-font "Roboto Mono 12" nil t)
+(set-frame-font "DejaVu Sans Mono 12" nil t)
 
 ;; column indicator
 (setq-default display-fill-column-indicator-column 80)
@@ -92,5 +93,14 @@
      ((t (:overline t))))
    '(org-block
      ((t (:background "#1e1e1e" :extend t))))))
+
+;; evil-goggles
+(with-eval-after-load 'evil-goggles
+  (setq evil-goggles-duration 0.3
+   evil-goggles-blocking-duration 0.1)
+  (custom-set-faces
+   '(evil-goggles-delete-face ((t (:inherit 'cursor))))
+   '(evil-goggles-paste-face ((t (:inherit 'cursor))))
+   '(evil-goggles-yank-face ((t (:inherit 'cursor))))))
 
 (provide 'init-p-ui)
