@@ -8,3 +8,4 @@
 (require 'init-p-keybindings)
 (require 'init-p-prog)
 (require 'init-p-text)
+(require 'init-p-abbr)
