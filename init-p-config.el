@@ -172,6 +172,9 @@
 ;; evil-goggles
 (evil-goggles-mode)
 
+;; electric indent mode
+(setq electric-indent-mode 0)
+
 ;; functions
 ;; https://stackoverflow.com/questions/2951797/wrapping-selecting-text-in-enclosing-characters-in-emacs
 (defun p-surround-parens ()
