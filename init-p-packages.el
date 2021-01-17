@@ -4,6 +4,4 @@
 ;; most recent version has no issue
 ;; (require-package 'ivy-rich)
 
-(require-package 'modus-themes)
-
 (provide 'init-p-packages)
