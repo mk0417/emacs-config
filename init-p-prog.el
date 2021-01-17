@@ -55,4 +55,23 @@
 (p-python-leader-visual-def
   "jr" 'jupyter-eval-line-or-region)
 
+;; ESS
+(with-eval-after-load 'ess
+  (setq ess-ask-for-ess-directory nil))
+
+(general-create-definer p-ess-leader-normal-def
+  :prefix ";"
+  :states 'normal
+  :keymaps 'ess-mode-map)
+(p-ess-leader-normal-def
+  "jf" 'ess-eval-function
+  "jr" 'ess-eval-region-or-line-and-step)
+
+(general-create-definer p-ess-leader-visual-def
+  :prefix ";"
+  :states 'visual
+  :keymaps 'ess-mode-map)
+(p-ess-leader-visual-def
+  "jr" 'ess-eval-region-or-line-and-step)
+
 (provide 'init-p-prog)

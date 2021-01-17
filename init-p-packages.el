@@ -4,4 +4,8 @@
 ;; most recent version has no issue
 ;; (require-package 'ivy-rich)
 
+;; use stable version of ess
+;; new version splited stata-mode separately
+(require-package 'ess)
+
 (provide 'init-p-packages)
