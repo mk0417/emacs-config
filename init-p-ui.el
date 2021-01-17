@@ -96,11 +96,10 @@
 
 ;; evil-goggles
 (with-eval-after-load 'evil-goggles
-  (setq evil-goggles-duration 0.3
-   evil-goggles-blocking-duration 0.1)
+  (setq evil-goggles-duration 0.3)
   (custom-set-faces
-   '(evil-goggles-delete-face ((t (:inherit 'cursor))))
-   '(evil-goggles-paste-face ((t (:inherit 'cursor))))
-   '(evil-goggles-yank-face ((t (:inherit 'cursor))))))
+   '(evil-goggles-delete-face ((t (:background "#cf5a65"))))
+   '(evil-goggles-paste-face ((t (:background "#cf5a65"))))
+   '(evil-goggles-yank-face ((t (:background "#cf5a65"))))))
 
 (provide 'init-p-ui)
