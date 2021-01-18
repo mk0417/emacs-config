@@ -96,7 +96,7 @@
 
 ;; evil-goggles
 (with-eval-after-load 'evil-goggles
-  (setq evil-goggles-duration 0.3)
+  (setq evil-goggles-duration 0.2)
   (custom-set-faces
    '(evil-goggles-delete-face ((t (:background "#cf5a65"))))
    '(evil-goggles-paste-face ((t (:background "#cf5a65"))))
