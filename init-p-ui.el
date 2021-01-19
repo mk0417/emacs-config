@@ -78,6 +78,8 @@
      ((t (:background "#ffeead" :foreground "black"))))
    '(company-tooltip-selection
      ((t (:background "#69adc6" :foreground "white"))))
+   '(company-tooltip-annotation
+     ((t (:background "#ffeead" :foreground "red"))))
    '(company-tooltip-common
      ((t (:background "#ffeead" :foreground "black"))))))
 
