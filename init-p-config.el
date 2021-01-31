@@ -175,6 +175,9 @@
 ;; color-rg
 (require 'color-rg)
 
+;; code-cells
+(require 'code-cells)
+
 ;; functions
 ;; https://stackoverflow.com/questions/2951797/wrapping-selecting-text-in-enclosing-characters-in-emacs
 (defun p-surround-parens ()
