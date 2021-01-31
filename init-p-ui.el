@@ -92,9 +92,7 @@
    '(org-block-begin-line
      ((t (:underline t))))
    '(org-block-end-line
-     ((t (:overline t))))
-   '(org-block
-     ((t (:background "#1e1e1e" :extend t))))))
+     ((t (:overline t))))))
 
 ;; evil-goggles
 (with-eval-after-load 'evil-goggles
