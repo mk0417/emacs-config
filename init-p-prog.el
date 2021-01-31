@@ -46,7 +46,8 @@
   "jI" 'jupyter-repl-interrupt-kernel
   "ji" 'jupyter-inspect-at-point
   "jc" 'p-jupyter-remove-line-overlay
-  "jC" 'jupyter-eval-remove-overlays)
+  "jC" 'jupyter-eval-remove-overlays
+  "jw" 'jupyter-repl-pop-to-buffer)
 
 (general-create-definer p-python-leader-visual-def
   :prefix ";"
