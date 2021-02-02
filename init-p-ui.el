@@ -6,6 +6,9 @@
 (horizontal-scroll-bar-mode -1)
 (menu-bar-mode -1)
 
+;; fix gap when using yabai
+(setq frame-resize-pixelwise t)
+
 ;; maximise window at startup
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
