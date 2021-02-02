@@ -6,6 +6,7 @@
 (define-key evil-normal-state-map (kbd "gok") 'p-surround-parens)
 (define-key evil-normal-state-map (kbd "gof") 'p-surround-brackets)
 (define-key evil-normal-state-map (kbd "goh") 'p-surround-curly)
+(define-key evil-normal-state-map (kbd "goo") 'crux-smart-open-line)
 (define-key evil-normal-state-map (kbd "s") 'avy-goto-char-2)
 (define-key evil-normal-state-map (kbd "C-e") 'evil-end-of-line)
 (define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
@@ -34,6 +35,7 @@
 (global-set-key (kbd "C-x K") 'kill-buffer-and-window)
 (global-unset-key (kbd "C-c c"))
 (global-set-key (kbd "C-c c") 'org-capture)
+(global-set-key [remap move-beginning-of-line] #'crux-move-beginning-of-line)
 
 ;; dired
 ;; (require 'dired)
